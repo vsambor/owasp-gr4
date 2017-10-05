@@ -1,6 +1,5 @@
-
-<div class="row footer">
-    2016 © TT-Bet. All rights reserved.
+<div>
+    2017/2018 © OWASP-GR4. All rights reserved.
 </div>
 
 </div>
