@@ -1,5 +1,5 @@
-<div>
-    2017/2018 © OWASP-GR4. All rights reserved.
+<div id="footer">
+  2017-2018 © OWASP-GR4. All rights reserved.
 </div>
 
 </div>

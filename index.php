@@ -5,10 +5,8 @@
   include '/include/header.inc.php';
 ?>
 
-<div class="container space-up">
-  <div class="col-md-8 col-md-offset-2">
-    <h2><strong>Welcome to OWASP Group 4</strong></h2>
-  </div>
+<div class="page">
+  <h2><strong>Welcome to OWASP Group 4</strong></h2>
 </div>
 
 <?php
