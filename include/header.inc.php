@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="<?=$SETTINGS['site_url']?>/css/style.css">
   <link rel="stylesheet" href="<?=$SETTINGS['site_url']?>/css/login.css">
+  <link rel="shortcut icon" href="http://localhost/security/owasp-gr4/img/favicon.ico" />
 </head>
 
 <body>
