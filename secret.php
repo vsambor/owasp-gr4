@@ -1,7 +1,7 @@
 <?php
   include 'config.php';
   include '/include/start.inc.php';
-  $metaTitle = 'Home';
+  $pageTitle = 'Secret';
   include '/include/header.inc.php';
 ?>
 

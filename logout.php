@@ -3,7 +3,7 @@
   include $PATH.'/include/start.inc.php';
 
   unset($_SESSION['user']);
-  $USER_ID = '';
+  $LOGGED_USER = '';
 
   header("Location: index.php"); 
   die("Redirecting to: index.php");

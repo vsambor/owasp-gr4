@@ -6,5 +6,4 @@
   $SETTINGS['db']['pass'] = '';
 
   $SETTINGS['root'] = 'http://localhost/security/owasp-gr4';
-  $SETTINGS['max_file_size'] = 5000000; // 5 mb
 ?>

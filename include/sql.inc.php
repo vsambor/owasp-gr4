@@ -2,15 +2,12 @@
 
 function getDB() {
   global $dataBase;
+  
   if($dataBase == null) {
     $dataBase = new DataBase();
   }
-  $db = $dataBase->getConnection();
-  $db->query('set character_set_client=utf8');
-  $db->query('set character_set_connection=utf8');
-  $db->query('set character_set_results=utf8');
-  $db->query('set character_set_server=utf8');
-  return  $db;
+
+  return $dataBase->getConnection();
 }
 
 function runSQL($db, $query, $params='', $fetch='') {
@@ -18,25 +15,25 @@ function runSQL($db, $query, $params='', $fetch='') {
     $stmt = $db->prepare($query);
     $stmt->execute($params ? $params : array());
   } catch(PDOException $ex) {
-    print_a($ex->getMessage());
+    print_r($ex->getMessage());
   }
   if($fetch != '') {
     return $stmt->$fetch(PDO::FETCH_ASSOC);
   } else {
     if(strtoupper(substr($query, 0, 6)) == 'INSERT') {
       return $db->lastInsertId();
-    } 
+    }
   }
 }
 
-function insertInTable($name, array $fields) {
+function insert($name, array $fields) {
   $db = getDB();
   $params = buildQueryParams($fields);
   $query = "INSERT INTO ".$name."(".join(", ", array_keys($fields)).") VALUES(".join(", ", array_keys($params)).")";
   return runSQL($db, $query, $params, '');
 }
 
-function updateTable($name, array $fields, array $conditions) {
+function update($name, array $fields, array $conditions) {
   $db = getDB();
   $query = 'UPDATE '.$name.' SET '
   .join(', ', preg_replace('/(^.*)/', '$1=:$1', array_keys($fields))).' WHERE '
