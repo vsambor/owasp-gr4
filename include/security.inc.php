@@ -1,5 +1,5 @@
 <?php
 if(!$logged) {
-    header("Location: /bet/404.php");
-    die("Redirecting to index.php"); 
+  header("Location: /404.php");
+  die("Redirecting to 404.php"); 
 }
