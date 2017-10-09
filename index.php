@@ -3,6 +3,9 @@
   include '/include/start.inc.php';
   $metaTitle = 'Home';
   include '/include/header.inc.php';
+  
+  // `test` contains all the users details from the db.
+  $test = getTable('users');
 ?>
 
 <div class="page">

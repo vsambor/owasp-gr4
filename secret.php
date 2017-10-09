@@ -6,10 +6,7 @@
 ?>
 
 <div class="page">
-  <form>
-  Username
-   <input type="text" name="username">
-  </form>
+  <div>Secret</div>
 </div>
 
 <?php
