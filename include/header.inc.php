@@ -17,7 +17,7 @@
 
 <ul>
   <li><a href="<?=$SETTINGS['root']?>">Home</a></li>
-  <?php if ($LOGGED_USER) { ?>
+  <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'secretholder') { ?>
     <li><a href="<?=$SETTINGS['root']?>/secret.php">Top Secret</a></li>
   <?php } ?>
 
