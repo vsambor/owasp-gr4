@@ -1,6 +1,7 @@
 <?php
   include 'config.php';
   include '/include/start.inc.php';
+  include '/include/security.inc.php';
   $pageTitle = 'Secret';
   include '/include/header.inc.php';
 ?>
