@@ -1,13 +1,5 @@
 <?php
 
-function buildQueryParams(array $arr, $init='') {
-  $new_arr = array();
-  foreach($arr as $key => $value) {
-    $new_arr[':'.$init.$key] = $value;
-  }
-  return $new_arr;
-}
-
 function get_POST($var) {
   return filter_input(INPUT_POST, $var);
 }
@@ -31,3 +23,5 @@ function checkPrivileges() {
 function isEmailValid($email) {
   return filter_var($email, FILTER_VALIDATE_EMAIL) ? 1 : 0;
 }
+
+?>
