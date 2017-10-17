@@ -8,7 +8,10 @@
 
 <div class="page">
 
-  <h2><strong>Welcome <?=$LOGGED_USER ? $LOGGED_USER['email'] : '' ?> to OWASP Group 4</strong></h2>
+  <h2>
+    <strong>Welcome <?=$LOGGED_USER ? $LOGGED_USER['email'] : '' ?> to OWASP Group 4</strong> <br><br>
+    <span style="color:red">____BROKEN version____ </span>
+  </h2>
 
   <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'secretholder') { ?>
     <div id="secret">Secret</div>
