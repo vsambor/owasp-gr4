@@ -10,17 +10,19 @@ function getDB() {
   return $dataBase->getConnection();
 }
 
-function getUserByEmail($email) {
-  return getDB()->query("SELECT * FROM users WHERE email='$email'")->fetch(PDO::FETCH_ASSOC);
+function insertUser($email, $password, $role="user", $valid=true) {
+  $query = "INSERT INTO users (email, password, role, is_valid) 
+    VALUES ('$email', '" .encryptPassword($password)."', '$role', '$valid')";
+  return getDB()->query($query);
+}
+
+function getUser($email, $password) {
+  $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+  return getDB()->query($query)->fetch(PDO::FETCH_ASSOC);
 }
 
 function getTable($table_name) {
   return getDB()->query("SELECT * FROM $table_name")->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function login($email, $password) {
-  $user = getUserByEmail($email);
-  return encryptPassword($password) === $user['password'] ? $user : '';
 }
 
 ?>

@@ -22,7 +22,7 @@
     if($password != $confim_password) {
       $errors .='<br>The passwords do not match.';
     } else {
-      insert('users', array('email'=>$email, 'password' => encryptPassword($password), 'role' => 'user'));
+      insertUser($email, $password);
       header("Location: " . $SETTINGS['root'] . "/login.php");
     }
   }

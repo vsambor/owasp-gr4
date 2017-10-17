@@ -16,8 +16,9 @@
     if(!isEmailValid($email)) {
       $errors = 'The email is invalid.';
     } else {
-
-      $user = login($email, $password);
+      
+      // Try to login.
+      $user =  getUser($email, encryptPassword($password));
 
       if($user) {
         // For security reason.
