@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Gets database connection over PDO driver.
+ */
 function getDB() {
   global $dataBase;
   
@@ -10,19 +13,26 @@ function getDB() {
   return $dataBase->getConnection();
 }
 
-function insertUser($email, $password, $role="user", $valid=true) {
-  $query = "INSERT INTO users (email, password, role, is_valid) 
-    VALUES ('$email', '" .encryptPassword($password)."', '$role', '$valid')";
-  return getDB()->query($query);
+/**
+ * Inserts an user into database.
+ */
+function insertUser($email, $password, $role="user", $is_valid=true) {
+  $db = getDB();
+  $query = "INSERT INTO users (email, password, role, is_valid) VALUES (:email, :password, :role, :is_valid)";
+  $stmt = $db->prepare($query); 
+  $stmt->execute([':email'=> $email, ':password' => encryptPassword($password), ':role' => $role, ':is_valid' => $is_valid]);
+  return $db->lastInsertId();
 }
 
+/**
+ * Gets a single user from db by email and password.
+ */
 function getUser($email, $password) {
-  $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-  return getDB()->query($query)->fetch(PDO::FETCH_ASSOC);
-}
-
-function getTable($table_name) {
-  return getDB()->query("SELECT * FROM $table_name")->fetchAll(PDO::FETCH_ASSOC);
+  $db = getDB();
+  $query = "SELECT * FROM users WHERE email=:email AND password=:password";
+  $stmt = $db->prepare($query);
+  $stmt->execute([':email' => $email, ':password' => encryptPassword($password)]);
+  return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 ?>

@@ -18,7 +18,7 @@
     } else {
       
       // Try to login.
-      $user =  getUser($email, encryptPassword($password));
+      $user =  getUser($email, $password);
 
       if($user) {
         // For security reason.
