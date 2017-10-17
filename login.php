@@ -12,26 +12,20 @@
     $email = get_POST('email');
     $password = get_POST('password');
 
-    // Checks if email is valid.
-    if(!isEmailValid($email)) {
-      $errors = 'The email is invalid.';
+    // Try to login.
+    $user =  getUser($email, encryptPassword($password));
+
+    if($user) {
+      // For security reason.
+      unset($user['password']); 
+
+      // Saves the user in session, that means he is logged in.
+      $_SESSION['user'] = $user;
+
+      // Redirects to home.
+      header("Location: " . $SETTINGS['root']);
     } else {
-      
-      // Try to login.
-      $user =  getUser($email, encryptPassword($password));
-
-      if($user) {
-        // For security reason.
-        unset($user['password']); 
-
-        // Saves the user in session, that means he is logged in.
-        $_SESSION['user'] = $user;
-
-        // Redirects to home.
-        header("Location: " . $SETTINGS['root']);
-      } else {
-        $errors = 'Login failed. Please try again.';
-      }
+      $errors = 'Login failed. Please try again.';
     }
   }
 ?>

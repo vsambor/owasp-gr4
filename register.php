@@ -13,11 +13,6 @@
     $password = get_POST('password');
     $confim_password = get_POST('confirm_password');
 
-    // Checks if email is valid.
-    if(!isEmailValid($email)) {
-      $errors = 'The email is invalid.';
-    }
-
     // Checks if passwords match.
     if($password != $confim_password) {
       $errors .='<br>The passwords do not match.';
