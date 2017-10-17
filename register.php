@@ -16,14 +16,15 @@
     // Checks if email is valid.
     if(!isEmailValid($email)) {
       $errors = 'The email is invalid.';
-    }
-
-    // Checks if passwords match.
-    if($password != $confim_password) {
-      $errors .='<br>The passwords do not match.';
     } else {
-      insertUser($email, $password);
-      header("Location: " . $SETTINGS['root'] . "/login.php");
+
+      // Checks if passwords match.
+      if($password != $confim_password) {
+        $errors .='<br>The passwords do not match.';
+      } else {
+        insertUser($email, $password);
+        header("Location: " . $SETTINGS['root'] . "/login.php");
+      }
     }
   }
 ?>
