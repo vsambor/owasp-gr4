@@ -17,7 +17,7 @@ function insertUser($email, $password, $role="user", $valid=true) {
 }
 
 function getUser($email, $password) {
-  $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+  $query = "SELECT * FROM users WHERE email='$email' AND password='".encryptPassword($password)."'";
   return getDB()->query($query)->fetch(PDO::FETCH_ASSOC);
 }
 
