@@ -17,8 +17,14 @@
 
 <ul>
   <li><a href="<?=$SETTINGS['root']?>">Home</a></li>
-  <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'secretholder') { ?>
-    <li><a href="<?=$SETTINGS['root']?>/secret.php">Top Secret</a></li>
+
+  <?php if ($LOGGED_USER) { ?>
+    <li><a href="<?=$SETTINGS['root']?>/shop.php">Shop</a></li>
+
+    <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'secretholder') { ?>
+      <li><a href="<?=$SETTINGS['root']?>/secret.php">Top Secret</a></li>
+    <?php } ?>
+
   <?php } ?>
 
   <?php if (!$LOGGED_USER) { ?>
