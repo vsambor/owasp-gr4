@@ -21,7 +21,7 @@
   <?php if ($LOGGED_USER) { ?>
     <li><a href="<?=$SETTINGS['site_url']?>/shop.php">Shop</a></li>
 
-    <?php if ($LOGGED_USER && $LOGGED_USER['site_url'] == 'secretholder') { ?>
+    <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'secretholder') { ?>
       <li><a href="<?=$SETTINGS['site_url']?>/secret.php">Top Secret</a></li>
     <?php } ?>
 
