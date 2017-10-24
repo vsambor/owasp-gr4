@@ -1,8 +1,8 @@
 <?php
-  include 'config.php';
-  include '/include/start.inc.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/security/owasp-gr4/config.php';
+  require_once $PATH . '/include/start.inc.php';
   $pageTitle = 'Login';
-  include '/include/header.inc.php';
+  require_once $PATH . '/include/header.inc.php';
 
   // Erros holder.
   $errors = '';
@@ -28,7 +28,9 @@
         $_SESSION['user'] = $user;
 
         // Redirects to home.
-        header("Location: " . $SETTINGS['root']);
+        header("Location:" . $SETTINGS['site_url']);
+        exit;
+
       } else {
         $errors = 'Login failed. Please try again.';
       }
@@ -54,4 +56,4 @@
 </div>
 
 <?php
-  include '/include/footer.inc.php';
+  require_once $PATH . '/include/footer.inc.php';

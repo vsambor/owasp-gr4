@@ -1,14 +1,13 @@
 <?php
-  include 'config.php';
-  include '/include/start.inc.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/security/owasp-gr4/config.php';
+  require_once $PATH . '/include/start.inc.php';
   $pageTitle = 'Home';
-  include '/include/header.inc.php';
-  
+  require_once $PATH . '/include/header.inc.php';
 ?>
 
 <div class="page">
 
-<h2>
+  <h2>
     <strong>Welcome <?=$LOGGED_USER ? $LOGGED_USER['email'] : '' ?> to OWASP Group 4</strong> <br><br>
     <span style="color:green">____SAFE version____ </span>
   </h2>
@@ -20,4 +19,4 @@
 </div>
 
 <?php
-  include '/include/footer.inc.php';
+  require_once $PATH . '/include/footer.inc.php';
