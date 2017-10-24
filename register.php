@@ -1,8 +1,8 @@
 <?php
-  include 'config.php';
-  include '/include/start.inc.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/security/owasp-gr4/config.php';
+  require_once $PATH . '/include/start.inc.php';
   $pageTitle = 'Register';
-  include '/include/header.inc.php';
+  require_once $PATH . '/include/header.inc.php';
 
   // Erros holder.
   $errors = '';
@@ -18,7 +18,8 @@
       $errors .='<br>The passwords do not match.';
     } else {
       insertUser($email, $password);
-      header("Location: " . $SETTINGS['root'] . "/login.php");
+      header("Location: " . $SETTINGS['site_url'] . "/login.php");
+      exit;
     }
   }
 ?>
@@ -45,4 +46,4 @@
 </div>
 
 <?php
-  include '/include/footer.inc.php';
+  require_once $PATH . '/include/footer.inc.php';

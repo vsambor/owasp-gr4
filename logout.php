@@ -1,10 +1,10 @@
 <?php 
-  include "config.php";
-  include $PATH.'/include/start.inc.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/security/owasp-gr4/config.php';
+  require_once $PATH . '/include/start.inc.php';
 
   unset($_SESSION['user']);
   $LOGGED_USER = '';
 
-  header("Location: index.php"); 
-  die("Redirecting to: index.php");
+  header("Location:" . $SETTINGS['site_url']);
+  exit;
 ?>
