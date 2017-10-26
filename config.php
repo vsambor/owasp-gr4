@@ -5,10 +5,9 @@
   $SETTINGS['db']['user'] = 'root';
   $SETTINGS['db']['pass'] = '';
 
-  $SETTINGS['site_host'] = 'http://localhost';
+  $SETTINGS['site_host'] = 'http://localhost:8888';
   $SETTINGS['site_path'] = '/security/owasp-gr4';
   $SETTINGS['site_url'] = $SETTINGS['site_host'] . $SETTINGS['site_path'];
 
-  $SETTINGS['root'] = $SETTINGS['site_host'] . $SETTINGS['site_url'];
   $PATH = $_SERVER['DOCUMENT_ROOT'] . $SETTINGS['site_path'];
 ?>
