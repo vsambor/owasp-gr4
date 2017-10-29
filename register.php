@@ -29,6 +29,8 @@
   <!-- Errors -->
   <h5><font color="red"><?=$errors?></font></h5>
 
+  <h3 style="text-align: center;">Register</h3>
+
   <!-- Register Form -->
   <form method="POST">
     <input type="hidden" name="action" value="1">

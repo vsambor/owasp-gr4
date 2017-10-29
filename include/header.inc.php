@@ -25,6 +25,10 @@
       <li><a href="<?=$SETTINGS['site_url']?>/secret.php">Top Secret</a></li>
     <?php } ?>
 
+    <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'admin') { ?>
+      <li><a href="<?=$SETTINGS['site_url']?>/change-password.php">Change users password</a></li>
+    <?php } ?>
+
   <?php } ?>
 
   <?php if (!$LOGGED_USER) { ?>

@@ -1,32 +1,27 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'] . '/security/owasp-gr4/config.php';
   require_once $PATH . '/include/start.inc.php';
-  $pageTitle = 'Login';
+  $pageTitle = 'Change Password';
   require_once $PATH . '/include/header.inc.php';
 
   // Erros holder.
   $errors = '';
+
+  // Infos holder.
+  $info = '';
   
   // When the form is submitted then this code is executed.
-  if(get_POST('action')) {
-    $email = get_POST('email');
-    $password = get_POST('password');
+  if(get_GET('action')) {
+    $email = get_GET('email');
+    $password = get_GET('password');
 
     // Try to login.
-    $user = getUser($email, $password);
+    $isChanged = changeUserPassword($email, $password);
 
-    if($user) {
-      // For security reason.
-      unset($user['password']); 
-
-      // Saves the user in session, that means he is logged in.
-      $_SESSION['user'] = $user;
-
-      // Redirects to home.
-      header("Location:" . $SETTINGS['site_url']);
-      exit;
+    if($isChanged) {
+      $info = 'The password has been successfully updated.';
     } else {
-      $errors = 'Login failed. Please try again.';
+      $errors = 'Password couldn\'t be changed. Please try again.';
     }
   }
 ?>
@@ -36,10 +31,13 @@
   <!-- Errors -->
   <h5><font color="red"><?=$errors?></font></h5>
 
-  <h3 style="text-align: center;">Login</h3>
+  <!-- Info -->
+  <h5><font color="green"><?=$info?></font></h5>
 
-  <!-- Login Form -->
-  <form method="POST">
+  <h3 style="text-align: center;">Change Users Password</h3>
+
+  <!-- Change Password Form -->
+  <form method="GET">
   <input type="hidden" name="action" value="1">
     <label><b>Email</b></label>
     <input type="email" placeholder="Email..." name="email" class="form-control form-group" required>

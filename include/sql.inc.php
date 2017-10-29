@@ -25,10 +25,21 @@ function getTable($table_name) {
   return getDB()->query("SELECT * FROM $table_name")->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function changeUserPassword($email, $password) {
+  return getDB()->query("UPDATE users SET password='".encryptPassword($password)."' WHERE email='" . $email ."'");
+}
+
 /**
  * Populates the the with 2 default user, with different roles.
  */
 function populateDb() {
+  // Adds admin user if it does not exist in the db.
+  $admin_exist = getUser('admin@security.com', '123');
+  if(!$admin_exist) {
+    insertUser('admin@security.com', '123', 'admin', true);
+  }
+
+
   // Adds secret user if it does not exist in the db.
   $secret_exist = getUser('secret@security.com', '123');
   if(!$secret_exist) {
