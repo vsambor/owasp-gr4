@@ -13,7 +13,7 @@
 ?>
 
 <div class="page">
-  <div>Secret</div>
+  <div>this is a fake secret! hahaha (try harder)</div>
 </div>
 
 <?php

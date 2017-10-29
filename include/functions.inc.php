@@ -20,4 +20,19 @@ function checkPrivileges() {
   }
 }
 
+/**
+ * Checks if user is of provided role type.
+ */
+function isRole($role) {
+  global $LOGGED_USER;
+  switch($role) {
+    case 'admin':
+      return $LOGGED_USER && $LOGGED_USER['role'] == 'admin';
+    case 'secretholder':
+      return ($LOGGED_USER && $LOGGED_USER['role'] == 'secretholder');
+    case 'user':
+      return $LOGGED_USER && $LOGGED_USER['role'] == 'user';
+  }
+}
+
 ?>
