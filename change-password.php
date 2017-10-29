@@ -42,7 +42,7 @@
     <label><b>Email</b></label>
     <input type="email" placeholder="Email..." name="email" class="form-control form-group" required>
 
-    <label><b>Password</b></label>
+    <label><b>New Password</b></label>
     <input type="password" placeholder="Password..." name="password" class="form-control form-group" required>
     <button type="submit" class="btn btn-md btn-danger btn-block">Login</button>
   </form>

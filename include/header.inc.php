@@ -21,13 +21,10 @@
 
   <?php if ($LOGGED_USER) { ?>
     <li><a href="<?=$SETTINGS['site_url']?>/shop.php">Shop</a></li>
+    <li><a href="<?=$SETTINGS['site_url']?>/profile.php">Profile</a></li>
 
     <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'secretholder') { ?>
       <li><a href="<?=$SETTINGS['site_url']?>/secret.php">Top Secret</a></li>
-    <?php } ?>
-
-    <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'admin') { ?>
-      <li><a href="<?=$SETTINGS['site_url']?>/change-password.php">Change users password</a></li>
     <?php } ?>
 
   <?php } ?>
