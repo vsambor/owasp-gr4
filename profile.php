@@ -10,7 +10,8 @@
 
   <h3 style="text-align: center;">Profile</h3>
 
-  <p>email: <?=$LOGGED_USER['email']?> </p> <br><br>
+  <p><b>email:</b> <?=$LOGGED_USER['email']?> </p>
+  <p><b>role:</b> <?=$LOGGED_USER['role']?> </p>
 
   <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'admin') { ?>
     <a href="<?=$SETTINGS['site_url']?>/change-password.php">Change users password</a> <br><br>
