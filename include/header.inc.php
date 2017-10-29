@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="<?=$SETTINGS['site_url']?>/css/style.css">
   <link rel="shortcut icon" href="<?=$SETTINGS['site_url']?>/img/favicon.ico" />
+  <script type="text/javascript" src="<?=$SETTINGS['site_url']?>/js/external.js"></script>
 </head>
 
 <body>
