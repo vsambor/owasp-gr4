@@ -7,14 +7,15 @@
   require_once $PATH . '/include/header.inc.php';
   
   if(get_GET('fwd')) {
-      header("Location: " . $SETTINGS['site_url'] . '/' . get_GET('fwd'));
-      exit;
+    header("Location: " . $SETTINGS['site_url'] . '/' . get_GET('fwd'). '?sid=' . get_GET('sid'));
+    exit;
    }
 ?>
 
 <div class="page">
   <form method="GET">
     <h3>Chess set - 100 $</h3>
+    <input type="hidden" name="sid" value="<?=session_id()?>">
     <input type="hidden" name="fwd" value="shop_confirmation.php">
     <input type="submit" value="buy">
   <form>
