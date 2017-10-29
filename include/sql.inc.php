@@ -35,7 +35,7 @@ function changeUserPassword($email, $password) {
 }
 
 function isSecretKeyGood($key) {
-  if($key == 'smart') {
+  if($key == base64_decode(getFileKey())) {
     return true;
   }
   return false;

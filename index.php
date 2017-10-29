@@ -28,7 +28,7 @@
         <input type="submit" value="Show Secret">
       </form>
   <?php } else { ?>
-    <div id="secret">BRAVO! you just steal one point from our grade... :( </div>
+    <div id="secret">BRAVO! you just steal one point from our grades... :( </div>
   <?php }} ?>
 
 </div>

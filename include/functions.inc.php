@@ -20,6 +20,17 @@ function checkPrivileges() {
   }
 }
 
+function getFileKey() {
+  $handle = fopen($_SERVER['DOCUMENT_ROOT'] . "/security/owasp-gr4/key.txt", "r");
+  if ($handle) {
+    $line = fgets($handle);
+    fclose($handle);
+  } else {
+    echo 'Error reading file';
+  }
+  return $line;
+}
+
 /**
  * Checks if user is of provided role type.
  */

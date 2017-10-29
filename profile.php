@@ -13,8 +13,9 @@
   <p><b>email:</b> <?=$LOGGED_USER['email']?> </p>
   <p><b>role:</b> <?=$LOGGED_USER['role']?> </p>
 
-  <?php if ($LOGGED_USER && $LOGGED_USER['role'] == 'admin') { ?>
+  <?php if (isRole('admin')) { ?>
     <a href="<?=$SETTINGS['site_url']?>/change-password.php">Change users password</a> <br><br>
+    <input type="hidden" value="key.txt">
   <?php } ?>
 
   <a href="<?=$SETTINGS['site_url']?>/reset-password.php">Reset Password</a>
